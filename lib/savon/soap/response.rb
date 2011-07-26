@@ -36,7 +36,7 @@ module Savon
       # Overwrite to work with multipart response.
       def to_xml
         if multipart?
-          parts.first.body.encoded  # we just assume the first part is the XML
+          parts.first.body.decoded  # we just assume the first part is the XML
         else
           http.body
         end
