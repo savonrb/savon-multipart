@@ -6,5 +6,5 @@ require "savon-multipart"
 # Disable logging and deprecations for specs.
 Savon.configure do |config|
   config.log = false
-  config.deprecate = false
+  # config.deprecate = false
 end
