@@ -19,7 +19,7 @@ module Savon
         else
           http.body = soap.to_xml
         end
-        http.headers["Content-Type"] ||= ContentType[soap.version]
+        http.headers["Content-Type"] ||= CONTENT_TYPE[soap.version]
         http.headers["Content-Length"] = http.body.bytesize.to_s
         http
       end
