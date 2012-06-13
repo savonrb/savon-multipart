@@ -5,10 +5,10 @@ module Savon
     class Response
 
       # Overwrite to +decode_multipart+.
-      def initialize(response)
+      def initialize(config, response)
         self.http = response
         decode_multipart
-        raise_errors if Savon.raise_errors?
+        raise_errors if config.raise_errors
       end
 
       def parts

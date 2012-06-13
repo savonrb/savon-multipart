@@ -26,7 +26,7 @@ describe Savon::SOAP::Response do
     defaults = { :code => 200, :headers => {}, :body => "" }
     response = defaults.merge options
 
-    Savon::SOAP::Response.new HTTPI::Response.new(response[:code], response[:headers], response[:body])
+    Savon::SOAP::Response.new Savon.config, HTTPI::Response.new(response[:code], response[:headers], response[:body])
   end
 
 end
