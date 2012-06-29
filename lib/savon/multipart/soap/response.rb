@@ -1,4 +1,4 @@
-require "savon/soap/part"
+require "savon/multipart/soap/part"
 
 module Savon
   module SOAP
