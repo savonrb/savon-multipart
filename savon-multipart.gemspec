@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = s.name
 
-  s.add_dependency "savon", "1.0.0"
+  s.add_dependency "savon", "1.1.0"
   s.add_dependency "mail"
 
   s.add_development_dependency "rake",    "~> 0.8.7"
