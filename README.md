@@ -1,7 +1,7 @@
-Savon Multipart [![Build Status](http://travis-ci.org/rubiii/savon-multipart.png)](http://travis-ci.org/rubiii/savon-multipart)
+Savon Multipart [![Build Status](http://travis-ci.org/savonrb/savon-multipart.png)](http://travis-ci.org/savonrb/savon-multipart)
 ===============
 
-Adds multipart support (SOAP with Attachments) to [Savon](https://github.com/rubiii/savon).  
+Adds multipart support (SOAP with Attachments) to [Savon](https://github.com/savonrb/savon).  
 Please test and provide feedback so we can merge this into Savon proper.
 
 
