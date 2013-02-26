@@ -1,4 +1,4 @@
-Savon Multipart [![Build Status](http://travis-ci.org/savonrb/savon-multipart.png)](http://travis-ci.org/savonrb/savon-multipart)
+Savon Multipart [![Build Status](https://secure.travis-ci.org/savonrb/savon-multipart.png)](http://travis-ci.org/savonrb/savon-multipart)
 ===============
 
 Adds multipart support (SOAP with Attachments) to [Savon](https://github.com/savonrb/savon).  
