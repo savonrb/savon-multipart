@@ -1,5 +1,3 @@
-require "savon"
-require "savon/multipart/version"
-require "savon/multipart/soap/request"
-require "savon/multipart/soap/response"
-require "savon/multipart/soap/xml"
+require 'savon'
+require 'savon/multipart/version'
+require 'savon/multipart/response'
