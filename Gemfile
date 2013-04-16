@@ -1,4 +1,2 @@
-source :rubygems
+source 'https://rubygems.org'
 gemspec
-
-#gem "savon", :path => "../savon"
