@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'savon-multipart'
 
 describe Savon::SOAP::Response do
 
