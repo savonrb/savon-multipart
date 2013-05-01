@@ -17,6 +17,19 @@ describe Savon::Multipart::Response do
     response.parts[1].parts[2].body.should == "This is a test message from Github"
   end
 
+  it "returns a String from the #to_xml method" do
+    body = File.read(File.expand_path('../../../fixtures/response/simple_multipart.txt', __FILE__))
+    response = soap_response :headers => @header, :body => body
+    response.to_xml.class.should == String
+  end
+
+  it "returns a Hash from the #body method" do
+    body = File.read(File.expand_path('../../../fixtures/response/simple_multipart.txt', __FILE__))
+    response = soap_response :headers => @header, :body => body
+    response.body.class.should == Hash
+    response.body.should == {:submit_req => true}
+  end
+
   it "returns the attachments" do
     response = soap_response :headers => @header, :body => @body
     response.attachments.size.should == 1
@@ -47,10 +60,12 @@ describe Savon::Multipart::Response do
   def soap_response(options = {})
     defaults = { :code => 200, :headers => {}, :body => "" }
     response = defaults.merge options
-    globals = {:multipart => true}
-    locals = {}
+    globals = {
+      :multipart => true,
+      :convert_response_tags_to  => lambda { |tag| tag.snakecase.to_sym}
+    }
     http = HTTPI::Response.new(response[:code], response[:headers], response[:body])
 
-    Savon::Multipart::Response.new(http, globals, locals)
+    Savon::Multipart::Response.new(http, globals, {})
   end
 end

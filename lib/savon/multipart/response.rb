@@ -22,7 +22,7 @@ module Savon
       def to_xml
         if multipart?
           parse_body unless @has_parsed_body
-          @parts.first.body
+          @parts.first.body.to_s
         else
           super
         end
@@ -39,15 +39,11 @@ module Savon
       end
 
       def parse_body
-        unless multipart?
-          super
-        else
-          @parts = Mail::Part.new(
-            :headers => http.headers,
-            :body => http.body
-          ).body.split!(boundary).parts
-          @has_parsed_body = true
-        end
+        @parts = Mail::Part.new(
+          :headers => http.headers,
+          :body => http.body
+        ).body.split!(boundary).parts
+        @has_parsed_body = true
       end
     end
   end
