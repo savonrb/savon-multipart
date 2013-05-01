@@ -52,6 +52,5 @@ describe Savon::Multipart::Response do
     http = HTTPI::Response.new(response[:code], response[:headers], response[:body])
 
     Savon::Multipart::Response.new(http, globals, locals)
-end
-
+  end
 end
