@@ -51,7 +51,7 @@ describe Savon::Multipart::Response do
 
     counter = 0
     subbed_parse_body = lambda { counter += 1 }
-    response.send(:define_singleton_method, :parse_body, subbed_parse_body)
+    response.class.send(:define_method, :parse_body, subbed_parse_body)
     5.times { response.attachments }
 
     counter.should == 0
