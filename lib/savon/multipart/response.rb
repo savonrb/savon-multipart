@@ -19,7 +19,7 @@ module Savon
         end
       end
 
-      def to_xml
+      def xml
         if multipart?
           parse_body unless @has_parsed_body
           @parts.first.body.to_s
