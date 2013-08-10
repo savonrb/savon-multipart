@@ -1,0 +1,25 @@
+----==_mimepart_4d416ae62fd32_201a8043814c4724
+Date: Thu, 27 Jan 2011 13:53:58 +0100
+Message-ID: <4d416ae631391_201a8043814c482c@Martin-iMac.local.mail>
+Mime-Version: 1.0
+Content-Type: text/xml;
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
+content-id: soap_xml_part
+
+<?xml version="1.0" encoding="UTF-8"?><envelope ><header></header><body><SubmitReq>true</SubmitReq></body></envelope>
+
+----==_mimepart_4d416ae628621_201a8043814c46ea
+Date: Thu, 27 Jan 2011 13:53:58 +0100
+Message-ID: <4d416ae633ce8_201a8043814c49c7@Martin-iMac.local.mail>
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+content-id: text_0.txt
+
+This is a test message from Github
+
+----==_mimepart_4d416ae628621_201a8043814c46ea--
+
+----==_mimepart_4d416ae62fd32_201a8043814c4724--
