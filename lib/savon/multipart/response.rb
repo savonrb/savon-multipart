@@ -30,12 +30,12 @@ module Savon
 
       private
       def multipart?
-        http.headers['Content-Type'] =~ /^multipart/
+        http.headers['content-type'] =~ /^multipart/
       end
 
       def boundary
         return unless multipart?
-        @boundary ||= Mail::Field.new('Content-Type', http.headers['Content-Type']).parameters['boundary']
+        @boundary ||= Mail::Field.new('content-type', http.headers['content-type']).parameters['boundary']
       end
 
       def parse_body
