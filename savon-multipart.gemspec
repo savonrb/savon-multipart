@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.add_dependency "savon", "~> 2.1.0"
   s.add_dependency "mail"
 
-  s.add_development_dependency "rake",    "~> 0.8.7"
-  s.add_development_dependency "rspec",   "~> 2.5.0"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rspec"
   s.add_development_dependency "autotest"
 
   s.files = `git ls-files`.split("\n")
