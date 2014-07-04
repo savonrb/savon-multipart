@@ -3,7 +3,6 @@ gemspec
 
 group :development do
   gem 'pry'
-  gem 'pry-debugger'
 end
 
 platform :rbx do
