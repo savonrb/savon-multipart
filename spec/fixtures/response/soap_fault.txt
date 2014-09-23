@@ -1,0 +1,7 @@
+----==_mimepart_4d416ae62fd32_201a8043814c4724
+Content-Type: text/xml; charset=UTF-8
+Content-Transfer-Encoding: binary
+Content-ID: <0.1bccd0fe5cc64dd5b5910cd3cc23a762332ffb50bdd8fe1b@apache.org>
+
+<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><soapenv:Fault xmlns:axis2ns1="http://schemas.xmlsoap.org/soap/envelope/"><faultcode>axis2ns1:Client</faultcode><faultstring>The service cannot be found for the endpoint reference (EPR) http://110.74.218.219:8080/EngineWS/services/SoapGWAppImp.SoapGWAppImpHttpSoap12Endpoint/</faultstring><detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>
+----==_mimepart_4d416ae62fd32_201a8043814c4724
