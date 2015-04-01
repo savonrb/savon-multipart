@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://savonrb.com"
   s.summary     = "Heavy metal Ruby SOAP client with multipart support"
   s.description = "Adds multipart support (SOAP with Attachments) to Savon"
+  s.required_ruby_version = '>= 1.9.2'
 
   s.rubyforge_project = s.name
 
