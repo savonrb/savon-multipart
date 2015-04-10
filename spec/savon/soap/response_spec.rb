@@ -53,6 +53,15 @@ describe Savon::Multipart::Response do
     end
   end
 
+  describe "a multipart response with case sensitive headers" do
+    let(:header) {{ "Content-Type" => 'MuLtIpArT/rElAtEd; boundary="--==_mimepart_4d416ae62fd32_201a8043814c4724"; charset=UTF-8; type="text/xml"' }}
+    let(:path) { File.expand_path('../../../fixtures/response/simple_multipart.txt', __FILE__) }
+
+    it "does not care about upper or lowercase values for ContentType" do
+      expect(response.body).to eq({:submit_req => true})
+    end
+  end
+
   context "not multipart" do
     let(:path) { File.expand_path('../../../fixtures/response/not_multipart.txt', __FILE__) }
     let(:header) { { 'Content-Type' => 'text/html; charset=utf-8'} }
