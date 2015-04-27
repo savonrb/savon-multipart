@@ -53,6 +53,19 @@ describe Savon::Multipart::Response do
     end
   end
 
+  context "simple xop" do
+    let(:path) { File.expand_path('../../../fixtures/response/simple_xop.txt', __FILE__) }
+
+    it "returns a String from the #xml method" do
+      expect(response.xml.class).to eq(String)
+    end
+
+    it "returns a Hash from the #body method, include xop data" do
+      expect(response.body.class).to eq(Hash)
+      expect(response.body).to eq({:binary_data => Base64.encode64('BinaryDataGoesHere').chomp})
+    end
+  end
+
   describe "a multipart response with case sensitive headers" do
     let(:header) {{ "Content-Type" => 'MuLtIpArT/rElAtEd; boundary="--==_mimepart_4d416ae62fd32_201a8043814c4724"; charset=UTF-8; type="text/xml"' }}
     let(:path) { File.expand_path('../../../fixtures/response/simple_multipart.txt', __FILE__) }
