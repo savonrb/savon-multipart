@@ -1,0 +1,13 @@
+----==_mimepart_4d416ae62fd32_201a8043814c4724
+Content-ID: <http://tempuri.org/0>
+Content-Transfer-Encoding: 8bit
+Content-Type: application/xop+xml;charset=utf-8;type="text/xml"
+
+<?xml version="1.0" encoding="UTF-8"?><envelope ><header></header><body><BinaryData><xop:Include href="cid:http://tempuri.org/1/123456789" xmlns:xop="http://www.w3.org/2004/08/xop/include"/></BinaryData></body></envelope>
+----==_mimepart_4d416ae62fd32_201a8043814c4724
+Content-ID: <http://tempuri.org/1/123456789>
+Content-Transfer-Encoding: binary
+Content-Type: application/octet-stream
+
+BinaryDataGoesHere
+----==_mimepart_4d416ae62fd32_201a8043814c4724--
