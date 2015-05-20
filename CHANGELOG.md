@@ -1,4 +1,8 @@
-## 2.1.0 (current)
+## 2.1.1 (current)
+
+* Improve detection of multipart content-type header.s
+
+## 2.1.0
 
 * Drops support for ruby 1.8.7
 
