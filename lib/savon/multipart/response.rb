@@ -1,4 +1,5 @@
 require 'mail'
+require 'cgi'
 
 module Savon
   module Multipart
@@ -71,7 +72,7 @@ module Savon
         end
         xop_elements.each do |xop_element|
           href = xop_element.attributes['href'].to_s
-          cid = href[4..-1]
+          cid = CGI.unescape(href[4..-1].to_s)
           data = @parts.find { |p| p.header['content-id'].to_s == "<#{cid}>" }.body.to_s
           xop_element.parent.content = Base64.encode64(data).chomp
         end
