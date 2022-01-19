@@ -1,6 +1,6 @@
 require 'savon-multipart'
 
-describe Savon::Multipart::Response do
+RSpec.describe Savon::Multipart::Response do
 
   let(:header) {{ "Content-Type" => 'multipart/related; boundary="--==_mimepart_4d416ae62fd32_201a8043814c4724"; charset=UTF-8; type="text/xml"' }}
   let(:body) { File.read(path) }
