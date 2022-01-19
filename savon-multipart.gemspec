@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pry"
   s.add_development_dependency "rspec"
   s.add_development_dependency "autotest"
-  s.add_development_dependency "transpec"
 
   s.files = `git ls-files`.split("\n")
   s.require_path = "lib"
