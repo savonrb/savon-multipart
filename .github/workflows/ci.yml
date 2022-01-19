@@ -7,23 +7,24 @@ on:
     branches: [main]
 
 jobs:
-  linting:
-    runs-on: ubuntu-latest
+  # linting:
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v1
+  #   steps:
+  #   - uses: actions/checkout@v1
 
-    - name: Set up Ruby 2.7
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-        bundler-cache: true
+  #   - name: Set up Ruby 2.7
+  #     uses: ruby/setup-ruby@v1
+  #     with:
+  #       ruby-version: 2.7
+  #       bundler-cache: true
 
-    - name: Rubocop
-      run: bundle exec rubocop --format progress
+  #   - name: Rubocop
+  #     run: bundle exec rubocop --format progress
 
   build:
-    needs: [linting]
+    # When we have linting, this is where we will place that
+    needs: []
     runs-on: ubuntu-latest
     strategy:
       matrix:
