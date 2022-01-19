@@ -34,7 +34,7 @@ RSpec.describe Savon::Multipart::Response do
     end
 
     it "only parses the SOAP body once" do
-      Mail::Part.stub(:new).and_return(double(Mail::Part).as_null_object)
+      expect(Mail::Part).to receive(:new).and_return(double(Mail::Part).as_null_object)
       expect(Mail::Part).to receive(:new).exactly(1).times
       5.times { response.attachments }
     end
