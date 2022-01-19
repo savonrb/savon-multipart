@@ -7,10 +7,16 @@ Please test and provide feedback so we can support as many multipart-soap messag
 Installation
 ------------
 
-Savon Multipart is available through [Rubygems](http://rubygems.org/gems/savon-multipart) and can be installed via:
+Savon Multipart is available through [Rubygems](https://rubygems.org/gems/savon-multipart) and can be installed via:
 
 ```
 $ gem install savon-multipart
+```
+
+Or in your `Gemfile`:
+
+```ruby
+gem 'savon-multipart'
 ```
 
 Usage
