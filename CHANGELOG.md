@@ -1,6 +1,10 @@
+## 2.1.2 (2022-01-20)
+
+* Loosen dependency on `mail` gem. ([#23](https://github.com/savonrb/savon-multipart/pull/23))
+
 ## 2.1.1 (current)
 
-* Improve detection of multipart content-type header.s
+* Improve detection of multipart content-type header.
 
 ## 2.1.0
 
