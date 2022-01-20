@@ -1,6 +1,7 @@
 ## 2.1.2 (2022-01-20)
 
 * Loosen dependency on `mail` gem. ([#23](https://github.com/savonrb/savon-multipart/pull/23))
+* Add ability to flatten MTOM XOP parts back into the main XML document ([#17](https://github.com/savonrb/savon-multipart/pull/17))
 
 ## 2.1.1
 
