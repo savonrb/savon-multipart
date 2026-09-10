@@ -1,46 +1,82 @@
-name: CI
+name: Ruby
 
 on:
-  pull_request:
+  - push
+  - pull_request
 
-  push:
-    branches: [master]
+permissions:
+  contents: read # checkout only, nothing else
 
 jobs:
-  # linting:
-  #   runs-on: ubuntu-latest
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: Audit dependencies
+        run: bundle exec bundle-audit check --update
+      - name: Audit Ruby runtime
+        # CVE-2026-41316 is an ERB flaw fixed in Ruby 4.0.3 and not yet backported.
+        # Ignored on affected rubies only. See:
+        # https://www.ruby-lang.org/en/news/2026/04/21/erb-cve-2026-41316/
+        # https://github.com/advisories/GHSA-q339-8rmv-2mhv
+        run: |
+          ignore=""
+          if ruby -e 'exit 1 unless Gem::Version.new(RUBY_VERSION) < Gem::Version.new("4.0.3")'; then
+            ignore="--ignore CVE-2026-41316"
+          fi
+          bundle exec ruby-audit check $ignore
 
-  #   steps:
-  #   - uses: actions/checkout@v1
+  zizmor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Audit workflows
+        uses: zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99 # v0.6.3
+        with:
+          advanced-security: false # fail the build on findings instead of uploading SARIF
 
-  #   - name: Set up Ruby 2.7
-  #     uses: ruby/setup-ruby@v1
-  #     with:
-  #       ruby-version: 2.7
-  #       bundler-cache: true
+  lint:
+    runs-on: ubuntu-latest
+    # Advisory for now: pre-existing offenses will be cleaned up in a dedicated pass.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: RuboCop
+        run: bundle exec rubocop --format github
 
-  #   - name: Rubocop
-  #     run: bundle exec rubocop --format progress
-
-  build:
-    # When we have linting, this is where we will place that
-    needs: []
+  test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        ruby:
-          - 2.6
-          - 2.7
-          - '3.0'
-          - 3.1
-          - jruby-9.2
-          - jruby-9.3
-
+        ruby: ['3.0', 3.1, 3.2, 3.3, 3.4, '4.0', truffleruby, head, truffleruby-head]
+    # Head builds exist to surface upstream regressions early.
+    # They should not block the build.
+    continue-on-error: ${{ matrix.ruby == 'head' || matrix.ruby == 'truffleruby-head' }}
+    env:
+      RAILS_ENV: test
     steps:
-    - uses: actions/checkout@v1
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true # 'bundle install' and cache
-    - name: Test
-      run: bundle exec rake
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true # bundle installs and caches dependencies
+      - name: Run tests
+        run: bundle exec rake --trace
