@@ -11,6 +11,15 @@ AllCops:
 Gemspec/RequireMFA:
   Enabled: true
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+  # Gemspec floors are intentionally low; raising them is a separate breaking-change decision.
+
+Naming/FileName:
+  Exclude:
+    - "lib/savon-multipart.rb"
+    # Entry-point file matches the gem name; renaming it would break `require "savon-multipart"`.
+
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
