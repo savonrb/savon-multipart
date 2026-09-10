@@ -8,4 +8,10 @@ if RUBY_VERSION > "3.1"
   gem "net-pop", require: false
   gem "net-smtp", require: false
 end
-gem "rubocop", "~> 0.49.1"
+
+gem "rubocop", "~> 1.86", ">= 1.86.2"
+gem "rubocop-rake", "~> 0.7.1"
+gem "rubocop-rspec", "~> 3.9"
+
+gem "bundler-audit", "~> 0.9.3", require: false
+gem "ruby_audit", "~> 3.1", require: false if RUBY_VERSION >= "3.1.0"
