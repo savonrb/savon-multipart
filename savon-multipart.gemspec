@@ -1,26 +1,29 @@
-lib = File.expand_path("../lib", __FILE__)
-$:.unshift lib unless $:.include? lib
+# frozen_string_literal: true
 
-require "savon/multipart/version"
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift lib unless $LOAD_PATH.include? lib
+
+require 'savon/multipart/version'
 
 Gem::Specification.new do |s|
-  s.name        = "savon-multipart"
+  s.name        = 'savon-multipart'
   s.version     = Savon::Multipart::VERSION
-  s.authors     = ["Martin Westin", "Daniel Harrington"]
-  s.email       = ["martin@eimermusic.com", "me@rubiii.com"]
-  s.homepage    = "http://savonrb.com"
-  s.summary     = "Heavy metal Ruby SOAP client with multipart support"
-  s.description = "Adds multipart support (SOAP with Attachments) to Savon"
+  s.authors     = ['Martin Westin', 'Daniel Harrington']
+  s.email       = ['martin@eimermusic.com', 'me@rubiii.com']
+  s.homepage    = 'http://savonrb.com'
+  s.summary     = 'Heavy metal Ruby SOAP client with multipart support'
+  s.description = 'Adds multipart support (SOAP with Attachments) to Savon'
   s.required_ruby_version = '>= 1.9.2'
 
-  s.add_dependency "savon", "~> 2"
-  s.add_dependency "mail", "~> 2"
+  s.add_dependency 'mail', '~> 2'
+  s.add_dependency 'savon', '~> 2'
 
-  s.add_development_dependency "rake"
-  s.add_development_dependency "pry"
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "autotest"
+  s.add_development_dependency 'autotest'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 
   s.files = `git ls-files`.split("\n")
-  s.require_path = "lib"
+  s.require_path = 'lib'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
