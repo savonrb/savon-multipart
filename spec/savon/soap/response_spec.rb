@@ -12,7 +12,7 @@ RSpec.describe Savon::Multipart::Response do
     globals = {
       :multipart => true,
       :raise_errors => true,
-      :convert_response_tags_to  => lambda { |tag| tag.snakecase.to_sym}
+      :convert_response_tags_to  => lambda { |tag| Savon::StringUtils.snakecase(tag).to_sym}
     }
     http = HTTPI::Response.new(response[:code], response[:headers], response[:body])
 
