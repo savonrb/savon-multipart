@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://savonrb.com'
   s.summary     = 'Heavy metal Ruby SOAP client with multipart support'
   s.description = 'Adds multipart support (SOAP with Attachments) to Savon'
-  # Note: this floor is intentionally conservative — CI starts at Ruby 3.0, but the gem likely
+  # NOTE: this floor is intentionally conservative — CI starts at Ruby 3.0, but the gem likely
   # still works on older Rubies. Don't raise it just to satisfy lint or match CI without evidence of breakage.
   s.required_ruby_version = '>= 1.9.2'
 
