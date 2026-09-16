@@ -1,3 +1,7 @@
+## 2.1.3 (2026-09-16)
+
+* Fix `xop:Include` parts with percent-encoded Content-IDs not being replaced in the response. ([#21](https://github.com/savonrb/savon-multipart/pull/21))
+
 ## 2.1.2 (2022-01-20)
 
 * Loosen dependency on `mail` gem. ([#23](https://github.com/savonrb/savon-multipart/pull/23))
